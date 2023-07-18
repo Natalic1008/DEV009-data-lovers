@@ -47,14 +47,14 @@ const showModal = (dataCountry) => {
   <a href="a" class="modal_close_button"> Cerrar</a>
   <img src=${dataCountry.flags.png}>
   <h2 name="Nombre_de_pais" id="informacion">${dataCountry.name.common}</h2>
-  <li name="Nombre_de_pais_oficial" id="informacion">Nombre de pais oficial: ${dataCountry.name.official}</li>
+  <li name="Nombre_de_pais_oficial" id="informacion">Official Country Name: ${dataCountry.name.official}</li>
   <li name="Capital" id="informacion">Capital: ${dataCountry.capital}</li>
-  <li name="Continente" id="informacion">Continente: ${dataCountry.continents}</li>
+  <li name="Continente" id="informacion">Continent: ${dataCountry.continents}</li>
   <li name="Subregion" id="informacion">Subregion: ${dataCountry.subregion}</li>
-  <li name="Idioma" id="informacion">Idioma: ${dataCountry.languages.spa}</li>
-  <li name="Paises_limitantes">Paises limitantes: ${dataCountry.borders}</li>
-  <li name="Poblacion_total">Población total: ${dataCountry.population}</li>
-  <li name="Area_total">Area total: ${dataCountry.area}</li>
+  <li name="Idioma" id="informacion">Language: ${dataCountry.languages.spa}</li>
+  <li name="Paises_limitantes">Neighboring countries: ${dataCountry.borders}</li>
+  <li name="Poblacion_total">Population: ${dataCountry.population}</li>
+  <li name="Area_total">Area: ${dataCountry.area}</li>
   </div> 
   </section> 
   `
@@ -69,6 +69,7 @@ const showModal = (dataCountry) => {
 
 /****Filtrado por continentes****/
 let countriesContinent = [];
+let subregionCheckboxes = [];
 const selectContinent = document.getElementById('continent-select');
 
 selectContinent.addEventListener('change', function() {
@@ -79,7 +80,7 @@ selectContinent.addEventListener('change', function() {
   /****Checkbox por subregion****/
   const filterSubregion = countriesContinent.map(country => country.subregion);
   const subregionByContinent = filterSubregion.filter((subregion,index) => filterSubregion.indexOf(subregion) === index);
-  const subregionCheckboxes = document.getElementById('subregion-checkboxes');
+  subregionCheckboxes = document.getElementById('subregion-checkboxes');
   subregionCheckboxes.innerHTML = '';
 
   subregionByContinent.forEach(subregion => {
@@ -124,6 +125,7 @@ selectOrder.addEventListener('change', function() {
 /***Funcionalidad al boton Inicio */
 const inicio =document.getElementById('Inicio');
 inicio.addEventListener("click",function(){
+  subregionCheckboxes.innerHTML = '';
   showCards(dataCountries);
 });
 
@@ -138,14 +140,17 @@ const contAfrica = GetCountriesByContinent (dataCountries,"Africa");
 const contAntarctica = GetCountriesByContinent (dataCountries,"Antarctica");
 
 const TotalAreasContinent = dataCountries.reduce((total,country)=> total +(country.area ||0), 0);
-/*const TotalAreaAmerica = contAmerica .reduce((total,country)=> total +(country.area ||0), 0);
+const TotalAreaAmerica = contAmerica .reduce((total,country)=> total +(country.area ||0), 0);
 const TotalAreaEurope = contEurope .reduce((total,country)=> total +(country.area ||0), 0);
 const TotalAreaAsia= contAsia .reduce((total,country)=> total +(country.area ||0), 0);
 const TotalAreaOceania = contOceania .reduce((total,country)=> total +(country.area ||0), 0);
 const TotalAreaAfrica = contAfrica .reduce((total,country)=> total +(country.area ||0), 0);
 const TotalAreaAntarctica = contAntarctica .reduce((total,country)=> total +(country.area ||0), 0);
 
-console.log(TotalAreasContinent);
+
+
+
+console.log(TotalAreasContinent);*/
 
 /*const sumaTotalAreas = computerStart(dataCountries);
 console.log(dataCountries.area);*/
