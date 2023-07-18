@@ -37,7 +37,7 @@ header{
   display:flex;
   flex-direction: row;
   flex-wrap:nowrap;
-  justify-content:space-around;
+  justify-content:space-between;
   align-items: center;   
 }
 
@@ -155,9 +155,41 @@ header{
   display: flex ;
   justify-content: space-between;
   background-color: #e3c1a0;
-  }
+}
 
 #a.modal_close_button{
   display: flex
   align-items;
 }
+
+.style_table{
+  border-collapse: collapse;
+    margin: 35px; 
+  font-size: 1 em;
+  min-width: 450px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  background-color: #e3c1a0;
+  text-align: center
+}
+
+
+.style_table1{
+  border-collapse:collapse;
+  margin: 35px; 
+  font-size: 1 em;
+  min-width: 450px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  background-color: #e3c1a0;
+  text-align: center;
+  
+}
+.pie_de_pagina{
+  width: 100%;
+  height: 60px;
+  background-color: #547ea7;
+  font-weight:bold ;
+  font-size: x-large;
+  text-align: center;
+  padding-top: 10px;
+} 
+
