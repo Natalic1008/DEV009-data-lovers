@@ -1,4 +1,4 @@
-import { busqueda, orderAZ,orderZA,GetCountriesByContinent} from '../src/data.js';
+import { busqueda, orderAZ,orderZA,GetCountriesByContinent, GetCountriesBySubregion} from '../src/data.js';
 const dataTestCountries = [{
   "name": {
     "common": "Colombia"
@@ -454,29 +454,36 @@ describe('Test para filtrar por allContinents', () => {
 });
 
 
-
-
-
-
-
-/*it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
-});*/
-
-/*describe('example', () => {
+/*Test subregion*/
+describe('GetCountriesBySubregioGn', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof GetCountriesBySubregion).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('Filtrar por subregion South America', () => {
+    const checkboxSelect= "South America"
+    const resultTestFilter = [{
+      "name": {
+        "common": "Colombia"
+      },
+      "capital": [
+        "Bogotá"
+      ],
+      "subregion": "South America",
+      "languages": {
+        "spa": "Spanish"
+      },
+      "area": 1141748,
+      "population": 50882884,
+      "continents": [
+        "America"
+      ],
+    }]
+    expect(GetCountriesBySubregion(dataTestCountries,checkboxSelect)).toEqual(resultTestFilter);
   });
 });
 
 
 
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});*/
+
+
