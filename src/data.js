@@ -11,7 +11,7 @@ export const busqueda = (countries,valor) => {
   return countries.filter((item) => item.name.common.toLowerCase().startsWith(valor));
 };
 
-/*************Ordenar de la A-Z***************/
+/*************Ordenar ***************/
 export const order = (countries, select) => {
   return countries.sort((a, b) => {
     const nameA = a.name.common.toUpperCase();
