@@ -43,10 +43,10 @@ Analizar los datos proporcionados con el fin de identificar el usuario al que pu
 
 ### 2.1. Objetivos especificos
 
-- [ ]** Conocer al usuario final, para identificar sus historias de usuario**
-- [ ]** Clasificar los datos que se desean trabajar **
-- [ ]** Identificar las necesidades del usuario **
-- [ ]** Diseñar una interfaz web interactiva que facilite el manejo de los datos por parte del usuario final **
+- Conocer al usuario final, para identificar sus historias de usuario
+- Clasificar los datos que se desean trabajar 
+- Identificar las necesidades del usuario 
+- Diseñar una interfaz web interactiva que facilite el manejo de los datos por parte del usuario final 
 
 ## 3. Definición del producto
 Documenta brevemente tu trabajo en el archivo `README.md` de tu repositorio,
