@@ -1,4 +1,4 @@
-import { busqueda, orderAZ,orderZA,GetCountriesByContinent, GetCountriesBySubregion,GetAreaStatistics, } from '../src/data.js';
+import { busqueda, orderAZ,orderZA,GetCountriesByContinent, GetCountriesBySubregion,GetAreaStatistics, GetPopulationStatistics, } from '../src/data.js';
 const dataTestCountries = [{
   "name": {
     "common": "Colombia"
@@ -488,30 +488,32 @@ describe('GetAreaStatistics', () => {
   it('is a function', () => {
     expect(typeof GetAreaStatistics).toBe('function');
   });
-  /*it('Calculo agregado de area de America',()=>{
-    const continent1 = "Americano"
-    const resultadoStatistics=[{
-      "name": {
-        "common": "Colombia"
-      },
-      "capital": [
-        "Bogotá"
-      ],
-      "subregion": "South America",
-      "languages": {
-        "spa": "Spanish"
-      },
-      "area": 1141748,
-      "population": 50882884,
-      "continents": [
-        "America"
-      ],
-    
-
-    }]
-    expect(GetAreaStatistics(dataTestCountries,continent1)).toEqual(resultadoStatistics)
-  });*/
+  it('Calculo agregado de area total',()=>{
+    const continent1 = "America"
+    const resultadoStatistics=[1141748,18328705,6.23]
+    expect(GetAreaStatistics(continent1,dataTestCountries)[1]).toEqual(resultadoStatistics[1])
+  });
+  it('Calculo porcentaje de area de America',()=>{
+    const continent1 = "America"
+    const resultadoStatistics=[1141748,18328705,6.23]
+    expect(GetAreaStatistics(continent1,dataTestCountries)[2]).toEqual(resultadoStatistics[2])
+  });
 });
 
+describe('GetPopulationStatistics', () => {
+  it('is a function', () => {
+    expect(typeof GetPopulationStatistics).toBe('function');
+  });
+  it('Calculo agregado de la  poblacion total',()=>{
+    const continent1 = "America"
+    const resultadoStatistics=[50882884,213171480,23,83]
+    expect(GetPopulationStatistics(continent1,dataTestCountries)[1]).toEqual(resultadoStatistics[1])
+  });
+  it('Calculo  poblacion de America',()=>{
+    const continent1 = "America"
+    const resultadoStatistics=[50882884,213171480,23,86]
+    expect(GetPopulationStatistics(continent1,dataTestCountries)[0]).toEqual(resultadoStatistics[0])
+  });
+});
 
 

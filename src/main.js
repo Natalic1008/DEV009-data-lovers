@@ -1,4 +1,4 @@
-import { GetCountriesByContinent, busqueda, orderAZ, orderZA,GetCountriesBySubregion,GetAreaStatistics,GetPopulationStatistics} from './data.js';
+import { GetCountriesByContinent, busqueda, order,GetCountriesBySubregion,GetAreaStatistics,GetPopulationStatistics} from './data.js';
 import data from './data/countries/countries.js';
 
 const root =document.getElementById('root');
@@ -51,7 +51,6 @@ const showModal = (dataCountry) => {
   <li name="Capital" id="informacion">Capital: ${dataCountry.capital}</li>
   <li name="Continente" id="informacion">Continent: ${dataCountry.continents}</li>
   <li name="Subregion" id="informacion">Subregion: ${dataCountry.subregion}</li>
-  <li name="Idioma" id="informacion">Language: ${dataCountry.languages.spa}</li>
   <li name="Paises_limitantes">Neighboring countries: ${dataCountry.borders}</li>
   <li name="Poblacion_total">Population: ${dataCountry.population}</li>
   <li name="Area_total">Area: ${dataCountry.area}</li>
@@ -138,7 +137,7 @@ buttonStatistics.addEventListener("click", function(){
   root.innerHTML= " ";
 
   const table = document.createElement('table');
-  //table.setAttribute('border','5');
+  table.setAttribute('border','5');
   table.setAttribute('class','style_table')
   
   // Crear una fila de encabezado
