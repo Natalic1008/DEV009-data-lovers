@@ -1,4 +1,4 @@
-import { busqueda, orderAZ,orderZA,GetCountriesByContinent, GetCountriesBySubregion,GetAreaStatistics, } from '../src/data.js';
+import { busqueda, order, GetCountriesByContinent, GetCountriesBySubregion,GetAreaStatistics, } from '../src/data.js';
 const dataTestCountries = [{
   "name": {
     "common": "Colombia"
@@ -121,7 +121,7 @@ describe('busqueda', () => {
 });
 
 /*Test ordenar A-Z*/
-describe('orderAZ', () => {
+describe('order', () => {
   it('is a function', () => {
     expect(typeof busqueda).toBe('function');
   });
@@ -219,14 +219,10 @@ describe('orderAZ', () => {
         "Asia"
       ],
     } ]
-    expect(orderAZ(dataTestCountries)).toEqual(resultTestOrderAZ);
+    expect(order(dataTestCountries,'a-z')).toEqual(resultTestOrderAZ);
   });
-});
-/*Test ordenar Z-A*/
-describe('orderZA', () => {
-  it('is a function', () => {
-    expect(typeof busqueda).toBe('function');
-  });
+
+  /*Test ordenar Z-A*/
 
   it('Ordenar de la Z-A', () => {
     const resultTestOrderZA = [{
@@ -321,7 +317,7 @@ describe('orderZA', () => {
         "Africa"
       ],
     }]
-    expect(orderZA(dataTestCountries)).toEqual(resultTestOrderZA);
+    expect(order(dataTestCountries,'z-a')).toEqual(resultTestOrderZA);
   });
 });
 
