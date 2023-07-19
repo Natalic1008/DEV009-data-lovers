@@ -1,4 +1,5 @@
-import { GetCountriesByContinent, busqueda, order, GetCountriesBySubregion,GetAreaStatistics,GetPopulationStatistics} from './data.js';
+import { GetCountriesByContinent, busqueda, order,GetCountriesBySubregion,GetAreaStatistics,GetPopulationStatistics} from './data.js';
+
 import data from './data/countries/countries.js';
 
 const root =document.getElementById('root');
