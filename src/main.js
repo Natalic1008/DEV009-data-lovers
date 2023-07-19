@@ -1,4 +1,4 @@
-import { GetCountriesByContinent, busqueda, order, GetCountriesBySubregion} from './data.js';
+import { GetCountriesByContinent, busqueda, orderAZ, orderZA,GetCountriesBySubregion,GetAreaStatistics,GetPopulationStatistics} from './data.js';
 import data from './data/countries/countries.js';
 
 const root =document.getElementById('root');
@@ -132,6 +132,7 @@ inicio.addEventListener("click",function(){
 });
 
 /**Calculo agregado */
+/** Por Area */
 const buttonStatistics = document.getElementById('Estadisticas');
 buttonStatistics.addEventListener("click", function(){ 
   root.innerHTML= " ";
@@ -165,88 +166,80 @@ buttonStatistics.addEventListener("click", function(){
   //Agregamos fila1
   const newRow1 = table.insertRow();
   const cellAmerica = newRow1.insertCell();
-  cellAmerica.textContent = "America";
-  const contAmerica = GetCountriesByContinent (dataCountries,"America");
-  const TotalAreaAmerica = contAmerica .reduce((total,country)=> total +(country.area ||0), 0);
-  const TotalAreasContinent = dataCountries.reduce((total,country)=> total +(country.area ||0), 0);
 
+  const nameContinent = ["America","Asia","Africa","Europe","Antarctica","Oceania","TOTAL"];
+  cellAmerica.textContent =nameContinent[0];
+  
   const cellAreaAm = newRow1.insertCell();
-  cellAreaAm.textContent = TotalAreaAmerica;
+  cellAreaAm.textContent = (GetAreaStatistics(nameContinent[0],dataCountries)[0]);
   const cellPercentAm = newRow1.insertCell();
-  cellPercentAm.textContent=((TotalAreaAmerica/TotalAreasContinent)*100).toFixed(2);
+  cellPercentAm.textContent=(GetAreaStatistics(nameContinent[0],dataCountries)[2]);
   
   // Agregar fila 2
   const newRow2 = table.insertRow();
   const cellAfrica = newRow2.insertCell();
-  cellAfrica.textContent = "Africa";
-  const contAfrica = GetCountriesByContinent (dataCountries,"Africa");
-  const TotalAreaAfrica = contAfrica .reduce((total,country)=> total +(country.area ||0), 0);
+  cellAfrica.textContent = nameContinent[2];
   
   const cellAreaAfr = newRow2.insertCell();
-  cellAreaAfr.textContent = TotalAreaAfrica;
+  cellAreaAfr.textContent = (GetAreaStatistics(nameContinent[2],dataCountries)[0]);
   const cellPercentAfrica = newRow2.insertCell();
-  cellPercentAfrica.textContent=((TotalAreaAfrica/TotalAreasContinent)*100).toFixed(2);
+  cellPercentAfrica.textContent=(GetAreaStatistics(nameContinent[2],dataCountries)[2]);
 
   //Agregamos fila3
   const newRow3 = table.insertRow();
   const cellAsia= newRow3.insertCell();
-  cellAsia.textContent = "Asia";
-  const contAsia = GetCountriesByContinent (dataCountries,"Asia");
-  const TotalAreaAsia= contAsia .reduce((total,country)=> total +(country.area ||0), 0);
- 
+  cellAsia.textContent = nameContinent[1];
+   
   const cellAreaAsia = newRow3.insertCell();
-  cellAreaAsia.textContent = TotalAreaAsia;
+  cellAreaAsia.textContent = (GetAreaStatistics(nameContinent[1],dataCountries)[0]);
   const cellPercentAsia = newRow3.insertCell();
-  cellPercentAsia.textContent=((TotalAreaAsia/TotalAreasContinent)*100).toFixed(2);
+  cellPercentAsia.textContent=(GetAreaStatistics(nameContinent[1],dataCountries)[2]);
 
   // Agregar fila 4
   const newRow4 = table.insertRow();
   const cellEurope = newRow4.insertCell();
-  cellEurope.textContent = "Europe";
-  const contEurope = GetCountriesByContinent (dataCountries,"Europe");
-  const TotalAreaEurope = contEurope .reduce((total,country)=> total +(country.area ||0), 0);
-
+  cellEurope.textContent = nameContinent[3];
+  
   const cellAreaEurope = newRow4.insertCell();
-  cellAreaEurope.textContent = TotalAreaEurope;
+  cellAreaEurope.textContent = (GetAreaStatistics(nameContinent[3],dataCountries)[0]);
   const cellPercentEurope = newRow4.insertCell();
-  cellPercentEurope.textContent=((TotalAreaEurope/TotalAreasContinent)*100).toFixed(2);
+  cellPercentEurope.textContent=(GetAreaStatistics(nameContinent[3],dataCountries)[2]);
  
   // Agregar fila 5
   const newRow5 = table.insertRow();
   const cellAntartica = newRow5.insertCell();
-  cellAntartica.textContent = "Antartica";
-  const contAntarctica = GetCountriesByContinent (dataCountries,"Antarctica");
-  const TotalAreaAntarctica = contAntarctica .reduce((total,country)=> total +(country.area ||0), 0);
-
+  cellAntartica.textContent = nameContinent[4];
+  
   const cellAreaAntartica = newRow5.insertCell();
-  cellAreaAntartica.textContent = TotalAreaAntarctica;
+  cellAreaAntartica.textContent = (GetAreaStatistics(nameContinent[4],dataCountries)[0]);
   const cellPercentAntartica = newRow5.insertCell();
-  cellPercentAntartica.textContent=((TotalAreaAntarctica/TotalAreasContinent)*100).toFixed(2);
+  cellPercentAntartica.textContent=(GetAreaStatistics(nameContinent[4],dataCountries)[2]);
+
 
   // Agregar fila 6
   const newRow6 = table.insertRow();
   const cellOceania = newRow6.insertCell();
-  cellOceania.textContent = 'Oceania';
-  const contOceania = GetCountriesByContinent (dataCountries,"Oceania");
-  const TotalAreaOceania = contOceania .reduce((total,country)=> total +(country.area ||0), 0);
-
+  cellOceania.textContent = nameContinent[5];
+  
   const cellAreaOceania = newRow6.insertCell();
-  cellAreaOceania.textContent = TotalAreaOceania;
+  cellAreaOceania.textContent = (GetAreaStatistics(nameContinent[5],dataCountries)[0]);
   const cellPercentOceania = newRow6.insertCell();
-  cellPercentOceania.textContent=((TotalAreaOceania/TotalAreasContinent)*100).toFixed(2);
+  cellPercentOceania.textContent=(GetAreaStatistics(nameContinent[5],dataCountries)[2]);
+
 
   // Agregar fila 7
   const newRow7 = table.insertRow();
   const cellTotal = newRow7.insertCell();
-  cellTotal.textContent = 'TOTAL';
+  cellTotal.textContent = nameContinent[6];
  
   const cellAreaTotal = newRow7.insertCell();
-  cellAreaTotal.textContent = TotalAreasContinent;
+  cellAreaTotal.textContent = (GetAreaStatistics(nameContinent[6],dataCountries)[1]);
+  const cellPercentTotal= newRow7.insertCell();
+  cellPercentTotal.textContent="100"
 
   root.appendChild(table);
-
   ///***  Tabla2 - calculo agregado de población**/
- 
+  
   const table1 = document.createElement('table');
   table1.setAttribute('border','5');
   table1.setAttribute('class','style_table1')
@@ -263,97 +256,89 @@ buttonStatistics.addEventListener("click", function(){
 
   const headerCellC = document.createElement("th");
   headerCellC.textContent = "PERCENTAGE (%)" ;
-
+  
   // Agregar las celdas de encabezado a la fila de encabezado
   headerRow1.appendChild(headerCellA);
   headerRow1.appendChild(headerCellB);
   headerRow1.appendChild(headerCellC);
-
+  
   // Agregar la fila de encabezado a la tabla
   table1.appendChild(headerRow1);
-
   // Crear una fila de datos
   //Agregamos fila1
   const newRowA = table1.insertRow();
   const cellAmerica1 = newRowA.insertCell();
-  cellAmerica1.textContent = "America";
-  
-  const TotalPopulationAmerica = contAmerica .reduce((total,country)=> total +(country.population ||0), 0);
-  const TotalPopulationContinent = dataCountries.reduce((total,country)=> total +(country.population ||0), 0);
+  cellAmerica1.textContent = nameContinent[0];
   
   const cellPopulationAm = newRowA.insertCell();
-  cellPopulationAm.textContent =  TotalPopulationAmerica;
+  cellPopulationAm.textContent =  (GetPopulationStatistics(nameContinent[0],dataCountries)[0]);
   const cellPercentPopulationAm = newRowA.insertCell();
-  cellPercentPopulationAm.textContent=((TotalPopulationAmerica/ TotalPopulationContinent)*100).toFixed(2);
+  cellPercentPopulationAm.textContent=(GetPopulationStatistics(nameContinent[0],dataCountries)[2]);
   
   //Agregamos fila2
   const newRowB = table1.insertRow();
   const cellAfrica1 = newRowB.insertCell();
-  cellAfrica1.textContent = "Africa";
+  cellAfrica1.textContent = nameContinent[2];
   
-  const TotalPopulationAfrica = contAfrica .reduce((total,country)=> total +(country.population ||0), 0);
-    
   const cellPopulationAfrica = newRowB.insertCell();
-  cellPopulationAfrica.textContent =  TotalPopulationAfrica;
+  cellPopulationAfrica.textContent =(GetPopulationStatistics(nameContinent[2],dataCountries)[0]);
   const cellPercentPopulationAfrica = newRowB.insertCell();
-  cellPercentPopulationAfrica.textContent=((TotalPopulationAfrica/ TotalPopulationContinent)*100).toFixed(2);
+  cellPercentPopulationAfrica.textContent=(GetPopulationStatistics(nameContinent[2],dataCountries)[2]);
   
   //Agregamos fila3
   const newRowC = table1.insertRow();
   const cellAsia1 = newRowC.insertCell();
-  cellAsia1.textContent = "Asia";
-  
-  const TotalPopulationAsia = contAsia .reduce((total,country)=> total +(country.population ||0), 0);
-    
+
+  cellAsia1.textContent = nameContinent[1];
+
   const cellPopulationAsia = newRowC.insertCell();
-  cellPopulationAsia.textContent =  TotalPopulationAsia;
+  cellPopulationAsia.textContent =  (GetPopulationStatistics(nameContinent[1],dataCountries)[0]);
   const cellPercentPopulationAsia = newRowC.insertCell();
-  cellPercentPopulationAsia.textContent=((TotalPopulationAsia/ TotalPopulationContinent)*100).toFixed(2);
-  
+  cellPercentPopulationAsia.textContent=(GetPopulationStatistics(nameContinent[1],dataCountries)[2]);
+
   //Agregamos fila4
   const newRowD = table1.insertRow();
   const cellEurope1 = newRowD.insertCell();
-  cellEurope1.textContent = "Europe";
+  cellEurope1.textContent = nameContinent[3];
   
-  const TotalPopulationEurope = contEurope .reduce((total,country)=> total +(country.population ||0), 0);
-    
   const cellPopulationEurope = newRowD.insertCell();
-  cellPopulationEurope.textContent =  TotalPopulationEurope;
+  cellPopulationEurope.textContent =  (GetPopulationStatistics(nameContinent[3],dataCountries)[0]);
   const cellPercentPopulationEurope = newRowD.insertCell();
-  cellPercentPopulationEurope.textContent=((TotalPopulationEurope/ TotalPopulationContinent)*100).toFixed(2);
-  
+  cellPercentPopulationEurope.textContent=(GetPopulationStatistics(nameContinent[3],dataCountries)[2]);
+
   //Agregamos fila5
   const newRowE = table1.insertRow();
   const cellAntarctica1 = newRowE.insertCell();
-  cellAntarctica1.textContent = "Antarctica";
-  
-  const TotalPopulationAntarctica = contAntarctica .reduce((total,country)=> total +(country.population ||0), 0);
+  cellAntarctica1.textContent =nameContinent[4];
     
   const cellPopulationAntarctica = newRowE.insertCell();
-  cellPopulationAntarctica.textContent =  TotalPopulationAntarctica;
+  cellPopulationAntarctica.textContent = (GetPopulationStatistics(nameContinent[4],dataCountries)[0]);
   const cellPercentPopulationAntarctica = newRowE.insertCell();
-  cellPercentPopulationAntarctica.textContent=((TotalPopulationAntarctica/ TotalPopulationContinent)*100).toFixed(2);
-  
+  cellPercentPopulationAntarctica.textContent=(GetPopulationStatistics(nameContinent[4],dataCountries)[2]);
+
   //Agregamos fila6
   const newRowF = table1.insertRow();
   const cellOceania1 = newRowF.insertCell();
-  cellOceania1.textContent = "Oceania";
-  
-  const TotalPopulationOceania = contOceania.reduce((total,country)=> total +(country.population ||0), 0);
-    
+
+  cellOceania1.textContent = nameContinent[5];
+   
   const cellPopulationOceania = newRowF.insertCell();
-  cellPopulationOceania.textContent =  TotalPopulationOceania;
+  cellPopulationOceania.textContent = (GetPopulationStatistics(nameContinent[5],dataCountries)[0]);
   const cellPercentPopulationOceania = newRowF.insertCell();
-  cellPercentPopulationOceania.textContent=((TotalPopulationOceania/ TotalPopulationContinent)*100).toFixed(2);
+  cellPercentPopulationOceania.textContent=(GetPopulationStatistics(nameContinent[5],dataCountries)[2]);
   
   //Agregamos fila7
   const newRowG = table1.insertRow();
   const cellTotalPop = newRowG.insertCell();
-  cellTotalPop.textContent = "TOTAL";
+
+  cellTotalPop.textContent = nameContinent[6];
   
   const cellPopulationTotal = newRowG.insertCell();
-  cellPopulationTotal.textContent =  TotalPopulationContinent;
-  
-  root.appendChild(table1);
-});
+  cellPopulationTotal.textContent =  (GetPopulationStatistics(nameContinent[6],dataCountries)[1]);
+  const cellPercentPopulationTotal = newRowG.insertCell();
+  cellPercentPopulationTotal.textContent="100";
 
+  root.appendChild(table1);
+})
+;
+ 

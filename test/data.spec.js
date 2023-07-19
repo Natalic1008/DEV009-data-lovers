@@ -1,4 +1,4 @@
-import { busqueda, orderAZ,orderZA,GetCountriesByContinent, GetCountriesBySubregion} from '../src/data.js';
+import { busqueda, orderAZ,orderZA,GetCountriesByContinent, GetCountriesBySubregion,GetAreaStatistics, } from '../src/data.js';
 const dataTestCountries = [{
   "name": {
     "common": "Colombia"
@@ -483,7 +483,35 @@ describe('GetCountriesBySubregioGn', () => {
   });
 });
 
+/*Test Calculo agregado*/
+describe('GetAreaStatistics', () => {
+  it('is a function', () => {
+    expect(typeof GetAreaStatistics).toBe('function');
+  });
+  /*it('Calculo agregado de area de America',()=>{
+    const continent1 = "Americano"
+    const resultadoStatistics=[{
+      "name": {
+        "common": "Colombia"
+      },
+      "capital": [
+        "Bogotá"
+      ],
+      "subregion": "South America",
+      "languages": {
+        "spa": "Spanish"
+      },
+      "area": 1141748,
+      "population": 50882884,
+      "continents": [
+        "America"
+      ],
+    
 
+    }]
+    expect(GetAreaStatistics(dataTestCountries,continent1)).toEqual(resultadoStatistics)
+  });*/
+});
 
 
 

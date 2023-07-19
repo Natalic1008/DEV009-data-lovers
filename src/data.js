@@ -38,3 +38,20 @@ export const GetCountriesBySubregion= (countries, subregion) => {
   return filterSubregion
 };
 
+
+/******* Calculo agregado********/
+export const GetAreaStatistics=(continents, countries) =>{
+  const arrayContinent= GetCountriesByContinent (countries,continents);
+  const areaContinent= arrayContinent .reduce((total,country)=> total +(country.area ||0), 0);
+  const totalAreasContinent = countries.reduce((total,country)=> total +(country.area ||0), 0);
+  const averageContinent= parseFloat(((areaContinent/totalAreasContinent)*100).toFixed(2));
+  return  [areaContinent, totalAreasContinent,averageContinent];
+};
+
+export const GetPopulationStatistics=(continents, countries) =>{
+  const arrayContinent= GetCountriesByContinent (countries,continents);
+  const populationContinent= arrayContinent .reduce((total,country)=> total +(country.population ||0), 0);
+  const totalPopulationContinent = countries.reduce((total,country)=> total +(country.population ||0), 0);
+  const averagePopulationContinent= parseFloat(((populationContinent/totalPopulationContinent)*100).toFixed(2));
+  return  [populationContinent, totalPopulationContinent,averagePopulationContinent];
+};
