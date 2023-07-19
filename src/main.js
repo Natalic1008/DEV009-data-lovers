@@ -115,12 +115,14 @@ const selectOrder = document.getElementById('order-select');
 selectOrder.addEventListener('change', function() {
   const selectedOrder = selectOrder.value;
   if(selectedOrder === 'a-z'){
-    showCards(orderAZ(countriesContinent)); 
+    showCards(order(countriesContinent,'a-z')); 
   }
   else{
-    showCards(orderZA(countriesContinent));
+    
+    showCards(order(countriesContinent,'z-a'));
   }
 });
+
 
 /***Funcionalidad al boton Inicio */
 const inicio =document.getElementById('Inicio');
@@ -136,7 +138,7 @@ buttonStatistics.addEventListener("click", function(){
   root.innerHTML= " ";
 
   const table = document.createElement('table');
-  table.setAttribute('border','5');
+  //table.setAttribute('border','5');
   table.setAttribute('class','style_table')
   
   // Crear una fila de encabezado
@@ -164,6 +166,7 @@ buttonStatistics.addEventListener("click", function(){
   //Agregamos fila1
   const newRow1 = table.insertRow();
   const cellAmerica = newRow1.insertCell();
+
   const nameContinent = ["America","Asia","Africa","Europe","Antarctica","Oceania","TOTAL"];
   cellAmerica.textContent =nameContinent[0];
   
@@ -212,6 +215,7 @@ buttonStatistics.addEventListener("click", function(){
   const cellPercentAntartica = newRow5.insertCell();
   cellPercentAntartica.textContent=(GetAreaStatistics(nameContinent[4],dataCountries)[2]);
 
+
   // Agregar fila 6
   const newRow6 = table.insertRow();
   const cellOceania = newRow6.insertCell();
@@ -221,6 +225,7 @@ buttonStatistics.addEventListener("click", function(){
   cellAreaOceania.textContent = (GetAreaStatistics(nameContinent[5],dataCountries)[0]);
   const cellPercentOceania = newRow6.insertCell();
   cellPercentOceania.textContent=(GetAreaStatistics(nameContinent[5],dataCountries)[2]);
+
 
   // Agregar fila 7
   const newRow7 = table.insertRow();
@@ -248,7 +253,7 @@ buttonStatistics.addEventListener("click", function(){
 
   const headerCellB = document.createElement("th");
   headerCellB.textContent = "POPULATION (hab)" ;
-  
+
   const headerCellC = document.createElement("th");
   headerCellC.textContent = "PERCENTAGE (%)" ;
   
@@ -283,8 +288,9 @@ buttonStatistics.addEventListener("click", function(){
   //Agregamos fila3
   const newRowC = table1.insertRow();
   const cellAsia1 = newRowC.insertCell();
+
   cellAsia1.textContent = nameContinent[1];
-  
+
   const cellPopulationAsia = newRowC.insertCell();
   cellPopulationAsia.textContent =  (GetPopulationStatistics(nameContinent[1],dataCountries)[0]);
   const cellPercentPopulationAsia = newRowC.insertCell();
@@ -309,10 +315,11 @@ buttonStatistics.addEventListener("click", function(){
   cellPopulationAntarctica.textContent = (GetPopulationStatistics(nameContinent[4],dataCountries)[0]);
   const cellPercentPopulationAntarctica = newRowE.insertCell();
   cellPercentPopulationAntarctica.textContent=(GetPopulationStatistics(nameContinent[4],dataCountries)[2]);
-  
+
   //Agregamos fila6
   const newRowF = table1.insertRow();
   const cellOceania1 = newRowF.insertCell();
+
   cellOceania1.textContent = nameContinent[5];
    
   const cellPopulationOceania = newRowF.insertCell();
@@ -323,6 +330,7 @@ buttonStatistics.addEventListener("click", function(){
   //Agregamos fila7
   const newRowG = table1.insertRow();
   const cellTotalPop = newRowG.insertCell();
+
   cellTotalPop.textContent = nameContinent[6];
   
   const cellPopulationTotal = newRowG.insertCell();
