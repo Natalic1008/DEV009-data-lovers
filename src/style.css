@@ -37,13 +37,13 @@ header{
   display:flex;
   flex-direction: row;
   flex-wrap:nowrap;
-  justify-content:space-between;
+  justify-content:space-around;
   align-items: center;   
 }
 
 #Inicio, #boton, #Estadisticas{
   height: 35px;
-  background-color: #e3c1a0;
+  background-color: transparent;
   border-color: transparent;
   font-size:larger;
   cursor: pointer;
@@ -76,7 +76,7 @@ header{
 }
 
 #Buscar{
-  width: auto;
+  width: 220px;
   height: 35px;
   font-weight: bold;
   color: #19191a;
@@ -153,7 +153,7 @@ header{
 
 #subregion-checkboxes {
   display: flex ;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: #e3c1a0;
 }
 
