@@ -16,19 +16,14 @@ export const order = (countries, select) => {
   return countries.sort((a, b) => {
     const nameA = a.name.common.toUpperCase();
     const nameB = b.name.common.toUpperCase();
-    if (select === 'a-z') {
-      if (nameA < nameB) return -1;
-      if (nameA > nameB) return 1;
-      return 0;
-    } else if (select === 'z-a') {
-      if (nameA > nameB) return -1;
-      if (nameA < nameB) return 1;
-      return 0;
+    if (select === 'a-z' && (nameA < nameB) ) {
+      return -1;
+          } else if (select === 'z-a'&& (nameA > nameB)) {
+      return 1;
+      
     }
   });
 };
-
-
 
 
 /*************Filtro por subregion***************/
