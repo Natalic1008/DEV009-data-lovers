@@ -18,9 +18,9 @@ export const order = (countries, select) => {
     const nameB = b.name.common.toUpperCase();
     if (select === 'a-z' && (nameA < nameB) ) {
       return -1;
-          } else if (select === 'z-a'&& (nameA > nameB)) {
-      return 1;
-      
+    } 
+    else if (select === 'z-a'&& (nameA > nameB) ) {
+      return -1;
     }
   });
 };
