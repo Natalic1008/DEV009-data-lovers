@@ -1,4 +1,4 @@
-import { busqueda, order, GetCountriesByContinent, GetCountriesBySubregion,GetAreaStatistics, } from '../src/data.js';
+import { busqueda, order, GetCountriesByContinent, GetCountriesBySubregion,GetAreaStatistics,GetPopulationStatistics } from '../src/data.js';
 
 const dataTestCountries = [{
   "name": {
@@ -502,14 +502,24 @@ describe('GetPopulationStatistics', () => {
     expect(typeof GetPopulationStatistics).toBe('function');
   });
   it('Calculo agregado de la  poblacion total',()=>{
-    const continent1 = "America"
-    const resultadoStatistics=[50882884,213171480,23,83]
-    expect(GetPopulationStatistics(continent1,dataTestCountries)[1]).toEqual(resultadoStatistics[1])
+    const continent2 = "America"
+    const resultadoStatistics1=[50882884,213171480,23.87]
+    expect(GetPopulationStatistics(continent2,dataTestCountries)[1]).toEqual(resultadoStatistics1[1])
   });
   it('Calculo  poblacion de America',()=>{
-    const continent1 = "America"
-    const resultadoStatistics=[50882884,213171480,23,86]
-    expect(GetPopulationStatistics(continent1,dataTestCountries)[0]).toEqual(resultadoStatistics[0])
+    const continent2 = "America"
+    const resultadoStatistics1=[50882884,213171480,23.87]
+    expect(GetPopulationStatistics(continent2,dataTestCountries)[0]).toEqual(resultadoStatistics1[0])
+  });
+  it('Calculo pocentaje poblacion de America',()=>{
+    const continent2 = "America"
+    const resultadoStatistics1=[50882884,213171480,23.87]
+    expect(GetPopulationStatistics(continent2,dataTestCountries)[2]).toEqual(resultadoStatistics1[2])
+  });
+  it('Calculo agregado de la poblacion Asia',()=>{
+    const continent2 = "Asia"
+    const resultadoStatistics=[34232050,213171480,16.058]
+    expect(GetPopulationStatistics(continent2,dataTestCountries)[1]).toEqual(resultadoStatistics[1])
   });
 });
 
