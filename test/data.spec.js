@@ -494,6 +494,7 @@ describe('GetAreaStatistics', () => {
     const continent1 = "America"
     const resultadoStatistics=[1141748,18328705,6.23]
     expect(GetAreaStatistics(continent1,dataTestCountries)[2]).toEqual(resultadoStatistics[2])
+    
   });
 });
 
@@ -521,6 +522,12 @@ describe('GetPopulationStatistics', () => {
     const resultadoStatistics=[34232050,213171480,16.058]
     expect(GetPopulationStatistics(continent2,dataTestCountries)[1]).toEqual(resultadoStatistics[1])
   });
+  it('Calculo  porcentaje de America',()=>{
+    const continent1 = "America"
+    const resultadoStatistics=[50882884,213171480,23.87]
+    expect(GetPopulationStatistics(continent1,dataTestCountries)[2]).toEqual(resultadoStatistics[2])
+  });
+
 });
 
 

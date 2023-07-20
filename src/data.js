@@ -26,8 +26,6 @@ export const order = (countries, select) => {
 };
 
 
-
-
 /*************Filtro por subregion***************/
 export const GetCountriesBySubregion= (countries, subregion) => {
   const filterSubregion= countries.filter((item) => item.subregion === subregion);
