@@ -490,6 +490,11 @@ describe('GetAreaStatistics', () => {
     const resultadoStatistics=[1141748,18328705,6.23]
     expect(GetAreaStatistics(continent1,dataTestCountries)[1]).toEqual(resultadoStatistics[1])
   });
+  it('Calculo agregado de area de America',()=>{
+    const continent1 = "America"
+    const resultadoStatistics=[1141748,18328705,6.23]
+    expect(GetAreaStatistics(continent1,dataTestCountries)[0]).toEqual(resultadoStatistics[0])
+  });
   it('Calculo porcentaje de area de America',()=>{
     const continent1 = "America"
     const resultadoStatistics=[1141748,18328705,6.23]
