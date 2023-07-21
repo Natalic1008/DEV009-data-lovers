@@ -49,39 +49,92 @@ Analizar los datos proporcionados con el fin de identificar el usuario al que pu
 - Diseñar una interfaz web interactiva que facilite el manejo de los datos por parte del usuario final 
 
 ## 3. Definición del producto
-Documenta brevemente tu trabajo en el archivo `README.md` de tu repositorio,
-contándonos cómo fue tu proceso de diseño y cómo crees que el producto resuelve
-el problema (o problemas) que tiene tu usuario.
+Nuestro proyecto es una pagina web interactiva de la información básica de todos los paises del mundo(bandera, capital, nombre comun, nombre oficial, continente, subregion, paises con los que se limetan, poblacion y área), la cual va dirigida a niños de básica primaria que desean conocer información de un pais en especifico, los paises que conforman cada contiente y sus subregiones; Al igual que estadisticas de poblacion y área total por continetes.
+
 
 ## 3. Historias de usuario
-Una vez que entiendas las necesidades de tus usuarios, escribe las [Historias
-de Usuario](https://es.wikipedia.org/wiki/Historias_de_usuario) que representen
-todo lo que el usuario necesita hacer/ver. Las **Historias de Usuario** deben
-ser el resultado de tu proceso de investigación o _research_ de tus usuarios.
 
-Asegúrate de incluir la definición de terminado (_definition of done_) y los
-Criterios de Aceptación para cada una.
+Realizamos las siguientes historias de usuario al comenzo del proyecto:
 
-En la medida de lo posible, termina una historia de usuario antes de pasar
-a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación):
+-![Historia Usuario inicial](/src/imagen/HUinicial.png)
+
+Pero no habiamos definido con anterioridad el público objetivo y teniamos error ya que el verbo de cada historia no era acorde con la pregunta del para que?.
+
+Por ende  nos toco revisar este tema e iniciar definiendo nuestro público objetivo con estas pregutas:
+
+a. ¿Quiénes son los principales usuarios de producto? 
+
+   Niñ@s de 5-14 años.
+
+b. ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
+
+  - Reconocer el pais de acuerdo a su bandera. 
+  - Conocer información básica de paises. 
+  - Aprender que paises tiene cada uno de los continentes.
+  - Comparar datos de los continentes.
+
+c. ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
+
+  - Ver las banderas para poder aprender a que pais le corresponde
+  - Conocer la información de un pais en especifico al hacer click en su bandera o buscandolo por el nombre.
+  - Poder visualizar los paises al filtrar por el continente y las subregiones para aprender.
+  - Comparar el área y la población por continente para determinar que continente tiene mayor área y cual mayor población
+ 
+d. ¿Cuándo utilizan o utilizarían el producto?
+
+  - Cuando tengan tareas de sociales especificas de contientes y sus paises.
+  - Esten interesados en conocer algun país para viajar.
+  - Por saber información de los paises por interes general.
+
+Y definimos las siguientes historias de usuario con sus respectivos criterios de aceptación.
+
+* HISTORIA DE USUARIO #1.
+
+![Historia de usuario 1 -Ver](/src/imagen/HU1.png)
+![Definición de terminado-Historia 1](/src/imagen/DOD1.png)
+
+* HISTORIA DE USUARIO #2.
+
+![Historia de usuario 2 - Filtrar](/src/imagen/HU2.png)
+![Definición de terminado-Historia 2](/src/imagen/DOD2.png)
+
+* HISTORIA DE USUARIO #3.
+
+![Historia de usuario 3 - Ordenar](/src/imagen/HU3.png)
+![Definición de terminado-Historia 3](/src/imagen/DOD3.png)
+
+* HISTORIA DE USUARIO #4.
+
+![Historia de usuario 4 - Ordenar](/src/imagen/HU4.png)
+![Definición de terminado-Historia 4](/src/imagen/DOD4.png)
 
 
 
+## 4. Diseño de la Interfaz de Usuario
+
+### 4.1 Prototipo de baja fidelidad
+
+A continuación presentamos:
+
+- Primer prototipo de baja fidelidad que realizamos
+
+![Prototipo de baja1](/src/imagen/prototipobaja1.png)
+![Prototipo de baja1](/src/imagen/prototipobaja1.1.png)
+
+- Segundo prototipo de baja fidelidad
+
+![Prototipo de baja2](/src/imagen/prototipobaja2.png)
+
+- Tercer prototipo de baja fidelidad
+
+![Prototipo de baja3](/src/imagen/prototipobaja3.png)
+
+Para tomar una decisión de cual de estas opciones escoger, tomamos una OH y nos indicaron que debia ser más sencillo, que todo se mostraba en una misma página; que no perdieramos el tiempo con mapamundis interactivos ya nos desviaba de los objetivos de este proyecto que es mostrar la data que tenemos. 
+
+Tomamos en cuentsa estas sugerencia y realizamos las modificaciones correspondientes que se veran en el prototipo de alta fidelidad. 
 
 
-
-
-
-### Diseño de la Interfaz de Usuario
-
-#### Prototipo de baja fidelidad
-
-Durante tu trabajo deberás haber hecho e iterado bocetos (_sketches_) de tu
-solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
-iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
-`README.md`.
-
-#### Prototipo de alta fidelidad
+### 4.2 Prototipo de alta fidelidad
 
 Lo siguiente es diseñar tu Interfaz de Usuario (UI por sus siglas en inglés -
 _User Interface_). Para eso debes aprender a utilizar alguna herramienta de
