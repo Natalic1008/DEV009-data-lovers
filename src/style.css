@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2? family= Tilt+Prism & family= Zen+Tokyo+Zoo & display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&family=Zen+Tokyo+Zoo&display=swap');
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Zen Tokyo Zoo', cursive;
   /*text-decoration: none;*/
 }
 
@@ -14,6 +13,7 @@ header{
   top: 0px;
   left: 0px;
   background-color:  #547ea7;
+  font-family: 'Zen Tokyo Zoo'
 }
 
 /*HEADER SUPERIOR*/
@@ -39,31 +39,37 @@ header{
   flex-wrap:nowrap;
   justify-content:space-around;
   align-items: center;   
-}
+  }
 
 #Inicio, #boton, #Estadisticas{
   height: 35px;
   background-color: transparent;
   border-color: transparent;
-  font-size:larger;
+  font-family: 'Zen Tokyo Zoo';
+  font-size: 1.25em;
+  font-weight:bold;
   cursor: pointer;
 }
 #Inicio:hover {
   background-color:#75664F;
   color: white ;
+  transform: scale(1.1);
 }
 #boton:hover {
   background-color:#75664F;
   color: white ;
+  transform: scale(1.1);
 }
 #Estadisticas:hover {
   background-color:#75664F;
   color: white ;
+  transform: scale(1.1);
 }
 
 #continent-select{
-  width: 220px;
+  width: 170px;
   height: 35px;
+  font-family: sans-serif;
   font-weight: bold;
   cursor: pointer;
 }
@@ -76,14 +82,16 @@ header{
 }
 
 #Buscar{
+  width: 170px;
   height: 35px;
+  font-family: sans-serif;
   font-weight: bold;
   color: #19191a;
   cursor: pointer;
 }
 
 #root{
-  margin-top: 200px;
+  margin-top: 220px;
   display: flex ;
   flex-wrap: wrap;
   justify-content:space-around;
@@ -99,8 +107,14 @@ header{
   text-align: justify;
   text-align:center;
   font-family: sans-serif;
+  box-sizing: border-box;
   /***Muestra del cursor en cada carta***/ 
   cursor: pointer;
+}
+
+.card p{
+  font-size: 1.5em;
+  font-weight: bold;
 }
 /***Sobresale la carta al pasar el mouse***/
 .card:hover{
@@ -123,37 +137,43 @@ header{
  bottom: 0;
  background-color: #111111bd;
  display:flex;
+ font-family: sans-serif;
 }
 
 .modal_container{
   margin:auto;
-  width: 80%;
-  max-width: 500px;
+  width: 30em;
+  max-width: 60em;
   max-height: 100%;
   background-color: whitesmoke;
-  border-radius:  15px; 
-  padding: 1rem ;
+  border-radius: 1em; 
+  padding: 2em ;
   display: grid;
-  gap: 2em;
+  gap: 1.1em;
   place-items:initial;
   list-style: none
-  /*grid-auto-columns:100%;*/
-  
-}
+    /*grid-auto-columns:100%;*/
+  }
+
 .modal img{
-  width: 200px;
+  width: 15em;
   height: auto;
   display: block;
   margin: 0 auto;
 }
-.modal h2{
+.modal p{
   text-align: center;
+  font-size: 1.5em;
+  font-weight:bold; 
 }
 
 #subregion-checkboxes {
   display: flex ;
   justify-content: space-around;
   background-color: #e3c1a0;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 #a.modal_close_button{
@@ -163,8 +183,9 @@ header{
 
 .style_table{
   border-collapse: collapse;
-    margin: 35px; 
-  font-size: 1 em;
+  margin: 35px; 
+  font-family: sans-serif;
+  font-size: 1em;
   min-width: 450px;
   box-shadow: 0 0 20px rgba(0,0,0,0.15);
   background-color: #e3c1a0;
@@ -175,7 +196,8 @@ header{
 .style_table1{
   border-collapse:collapse;
   margin: 35px; 
-  font-size: 1 em;
+  font-family: sans-serif;
+  font-size: 1em;
   min-width: 450px;
   box-shadow: 0 0 20px rgba(0,0,0,0.15);
   background-color: #e3c1a0;
@@ -192,3 +214,31 @@ header{
   padding-top: 10px;
 } 
 
+@media screen and (max-width: 768px){
+  .card {
+     font-size: 1em !important;
+  }
+
+  #Inicio, #boton, #Estadisticas{
+      font-size:1em !important;
+  }
+
+  .modal_container{
+    
+    width: 40rem;
+    max-width: 60rem;
+    max-height: 100%;
+    background-color: whitesmoke;
+    border-radius:  1em; 
+    padding: 2em ;
+    display: grid;
+    gap: 1em;
+  }
+  
+  .modal img{
+    width: 10em !important;
+      }
+  .modal p{
+    text-align: center;
+  }
+}

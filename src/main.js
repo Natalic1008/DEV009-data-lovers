@@ -13,7 +13,7 @@ const showCards =(data)=>{
     card.id = data[i].name.common;
     card.innerHTML= ` 
     <img src=${data[i].flags.png}>
-    <h2>${data[i].name.common}</h2>
+    <p>${data[i].name.common}</p>
     `
     root.appendChild(card);
     /**********Seleccion de cartas para Modal********/
@@ -47,7 +47,7 @@ const showModal = (dataCountry) => {
   <ul class="modal_lista"></ul>
   <a href="a" class="modal_close_button"> Cerrar</a>
   <img src=${dataCountry.flags.png}>
-  <h2 name="Nombre_de_pais" id="informacion">${dataCountry.name.common}</h2>
+  <p name="Nombre_de_pais" id="informacion">${dataCountry.name.common}</p>
   <li name="Nombre_de_pais_oficial" id="informacion">Official Country Name: ${dataCountry.name.official}</li>
   <li name="Capital" id="informacion">Capital: ${dataCountry.capital}</li>
   <li name="Continente" id="informacion">Continent: ${dataCountry.continents}</li>
