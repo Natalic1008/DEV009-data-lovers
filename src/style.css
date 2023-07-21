@@ -46,7 +46,7 @@ header{
   background-color: transparent;
   border-color: transparent;
   font-family: 'Zen Tokyo Zoo';
-  font-size: 1.25em;
+  font-size: 1.1em;
   font-weight:bold;
   cursor: pointer;
 }
@@ -115,6 +115,7 @@ header{
 .card p{
   font-size: 1.5em;
   font-weight: bold;
+  box-sizing: border-box;
 }
 /***Sobresale la carta al pasar el mouse***/
 .card:hover{
@@ -165,6 +166,7 @@ header{
   text-align: center;
   font-size: 1.5em;
   font-weight:bold; 
+  box-sizing: border-box;
 }
 
 #subregion-checkboxes {
@@ -214,25 +216,54 @@ header{
   padding-top: 10px;
 } 
 
-@media screen and (max-width: 768px){
-  .card {
-     font-size: 1em !important;
+@media only screen and (max-width: 600px){
+  .logoTitulo {
+    display: flexbox;
+    font-size: 0.6rem;
+    letter-spacing: 0.5px;
+    margin: 0px;
   }
 
+  .logoTitulo img {
+    scale: 0.6;
+  }
+
+  .card {
+    background-color: #faf2f4;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #547ea7;
+    text-align: justify;
+    text-align:center;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .card p {
+    font-size: 0.8em;
+    box-sizing: border-box;
+  }
+
+  .card img {
+    height: 75px;
+    width: 125px;
+   }
+  
+
   #Inicio, #boton, #Estadisticas{
-      font-size:1em !important;
+      font-size:0.7em ;
   }
 
   .modal_container{
-    
-    width: 40rem;
-    max-width: 60rem;
+    width: 20rem;
+    max-width: 40rem;
     max-height: 100%;
     background-color: whitesmoke;
-    border-radius:  1em; 
-    padding: 2em ;
+    border-radius:  0.5em; 
+    padding: 1em ;
     display: grid;
-    gap: 1em;
+    gap: 0.8em;
   }
   
   .modal img{
@@ -241,4 +272,50 @@ header{
   .modal p{
     text-align: center;
   }
+
+  .navegacion{
+    height: 60px;
+    padding: 5px 100px;
+       
+  }
+  
+  #continent-select{
+    width: 100px;
+    height: 20px;
+    font-family: sans-serif;
+    font-size: 0.5em;
+    margin: 2em;
+  }
+  
+  #order-select{
+    width: auto;
+    height: 20px;
+    font-size: 0.5em;
+  }
+  
+  #Buscar{
+    width: 100px;
+    height: 20px;
+    font-size: 0.5em;
+  }
+
+  #root{
+    margin-top: 180px;
+  }
+
+  #subregion-checkboxes {
+    display:contents;
+    justify-content: space-around;
+    background-color: #e3c1a0;   
+    font-size: 0.6em;
+    align-items: center;
+    height: 2em;
+    margin: 10px;
+  }
+
+  .pie_de_pagina{
+  font-size: 0.8em;
+  height: 2em;
+  }
+
 }
