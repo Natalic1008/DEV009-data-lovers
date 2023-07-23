@@ -74,14 +74,27 @@ const selectContinent = document.getElementById('continent-select');
 
 selectContinent.addEventListener('change', function() {
   const selectedContinent = selectContinent.value;
-  countriesContinent = GetCountriesByContinent(dataCountries, selectedContinent);
-  showCards(countriesContinent); 
+  if (selectContinent.value === 'Todos'){
+    showCards(dataCountries);
+    selectOrder.addEventListener('change', function() {
+      const selectedOrder = selectOrder.value;
+      if(selectedOrder === 'a-z'){
+        showCards(order(dataCountries,'a-z')); 
+      }
+      else{
+        showCards(order(countriesContinent,'z-a'));
+      }
+    });
+  } else {
+    countriesContinent = GetCountriesByContinent(dataCountries, selectedContinent)
+    showCards(countriesContinent); 
+  }  
   
   /****Checkbox por subregion****/
-  const filterSubregion = countriesContinent.map(country => country.subregion);
-  const subregionByContinent = filterSubregion.filter((subregion,index) => filterSubregion.indexOf(subregion) === index);
   subregionCheckboxes = document.getElementById('subregion-checkboxes');
   subregionCheckboxes.innerHTML = '';
+  const filterSubregion = countriesContinent.map(country => country.subregion);
+  const subregionByContinent = filterSubregion.filter((subregion,index) => filterSubregion.indexOf(subregion) === index);
 
   subregionByContinent.forEach(subregion => {
     const checkbox = document.createElement('input');
