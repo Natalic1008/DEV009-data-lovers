@@ -7,7 +7,7 @@
 }
 
 body {
-  background-image: url('../imagen/fondo.jpg');
+  background-image: url(./imagen/fondo.jpg);
 }
 
  header{
