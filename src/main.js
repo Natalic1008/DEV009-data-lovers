@@ -352,6 +352,5 @@ buttonStatistics.addEventListener("click", function(){
   cellPercentPopulationTotal.textContent="100";
 
   root.appendChild(table1);
-})
-;
+});
  
